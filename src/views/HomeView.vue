@@ -4,16 +4,17 @@ import { onMounted } from "vue";
 import { useCurrencyPairs } from "@/stores/useCurrencyPairs";
 import { useOrderbook } from "@/stores/useOrderbook";
 const currencyPairs = useCurrencyPairs();
-const orderBook = useOrderbook();
+const orderbook = useOrderbook();
 
 onMounted(async () => {
   await currencyPairs.getPairs();
-  await orderBook.getOrderbook();
+  await orderbook.getOrderbook();
 });
 </script>
 
 <template>
   <main>
-    <OrderbookTable />
+    <OrderbookTable :book="orderbook.bids" />
+    <OrderbookTable :book="orderbook.asks" />
   </main>
 </template>
