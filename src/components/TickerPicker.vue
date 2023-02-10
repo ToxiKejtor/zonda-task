@@ -1,0 +1,21 @@
+<template>
+  <v-autocomplete
+    label="Select"
+    :items="currencyPairs.pairs"
+    :model-value="currencyPairs.currentPair"
+    @update:modelValue="changeCurrencyPair"
+  />
+</template>
+
+<script lang="ts" setup>
+import { useCurrencyPairs } from "@/stores/useCurrencyPairs";
+import { useOrderbook } from "@/stores/useOrderbook";
+const currencyPairs = useCurrencyPairs();
+const orderbook = useOrderbook();
+function changeCurrencyPair(newPair: string) {
+  currencyPairs.currentPair = newPair;
+  orderbook.getOrderbook(newPair);
+}
+</script>
+
+<style scoped></style>

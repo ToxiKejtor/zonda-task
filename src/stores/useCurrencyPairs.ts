@@ -5,7 +5,7 @@ export const defaultPair = "BTC-PLN";
 export const useCurrencyPairs = defineStore("useCurrencyPairs", {
   state: () => ({
     pairs: [] as string[],
-    currentPair: defaultPair,
+    currentPair: defaultPair as string,
   }),
   getters: {
     currency1(state) {
