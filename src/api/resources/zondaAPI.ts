@@ -1,6 +1,7 @@
 import { APISettings } from "@/api/config";
 import type { ITickersResponse } from "@/api/types/ITickersResponse";
 import type { IOrderbookResponse } from "@/api/types/IOrderbookResponse";
+import { defaultPair } from "@/stores/useCurrencyPairs";
 
 export default {
   async getTickers(): Promise<ITickersResponse> {
@@ -9,10 +10,7 @@ export default {
       headers: APISettings.headers,
     }).then((response) => response.json());
   },
-  async getOrderbook(
-    pair: string = "BTC-PLN",
-    limit: number = 10
-  ): Promise<IOrderbookResponse> {
+  async getOrderbook(pair: string, limit: number): Promise<IOrderbookResponse> {
     return await fetch(
       `${APISettings.baseURL}/orderbook-limited/${pair}/${limit}`,
       {

@@ -8,13 +8,13 @@ const orderbook = useOrderbook();
 
 onMounted(async () => {
   await currencyPairs.getPairs();
-  await orderbook.getOrderbook();
+  await orderbook.getOrderbook(currencyPairs.currentPair);
 });
 </script>
 
 <template>
   <main>
-    <OrderbookTable :book="orderbook.bids" />
-    <OrderbookTable :book="orderbook.asks" />
+    <OrderbookTable :book="orderbook.bids" title="Bids" />
+    <OrderbookTable :book="orderbook.asks" title="Asks" />
   </main>
 </template>

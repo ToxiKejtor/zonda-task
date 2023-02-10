@@ -1,10 +1,11 @@
 <template>
+  <h3>{{ title }}</h3>
   <v-table>
     <thead>
       <tr>
         <th class="text-left">Exchange rate</th>
-        <th class="text-left">--BTC-- amount</th>
-        <th class="text-left">Value in --PLN--</th>
+        <th class="text-left">{{ currencyPairs.currency1 }} amount</th>
+        <th class="text-left">Value in {{ currencyPairs.currency2 }}</th>
         <th class="text-left">Nb of offers</th>
       </tr>
     </thead>
@@ -21,7 +22,9 @@
 
 <script setup lang="ts">
 import type { IBook } from "@/stores/useOrderbook";
-defineProps<{ book: IBook[] }>();
+import { useCurrencyPairs } from "@/stores/useCurrencyPairs";
+defineProps<{ book: IBook[]; title: string }>();
+const currencyPairs = useCurrencyPairs();
 </script>
 
 <style scoped></style>
