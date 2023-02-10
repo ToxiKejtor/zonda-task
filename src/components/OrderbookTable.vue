@@ -21,9 +21,9 @@
 </template>
 
 <script setup lang="ts">
-import type { IBook } from "@/stores/useOrderbook";
+import type { OrderbookTableRow } from "@/types/OrderbookTableRow";
 import { useCurrencyPairs } from "@/stores/useCurrencyPairs";
-defineProps<{ book: IBook[]; title: string }>();
+defineProps<{ book: OrderbookTableRow[]; title: string }>();
 const currencyPairs = useCurrencyPairs();
 </script>
 

@@ -28,7 +28,7 @@ interface Item {
   previousRate: string;
 }
 
-export interface ITickersResponse {
+export interface TickersResponse {
   status: string;
   items: Item[];
 }

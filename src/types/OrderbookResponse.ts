@@ -1,4 +1,4 @@
-export interface IOrderbookItems {
+export interface OrderbookItems {
   ra: string;
   ca: string;
   sa: string;
@@ -6,10 +6,10 @@ export interface IOrderbookItems {
   co: number;
 }
 
-export interface IOrderbookResponse {
+export interface OrderbookResponse {
   status: string;
-  sell: IOrderbookItems[];
-  buy: IOrderbookItems[];
+  sell: OrderbookItems[];
+  buy: OrderbookItems[];
   timestamp: string;
   seqNo: string;
 }

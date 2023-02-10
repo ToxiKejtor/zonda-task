@@ -1,16 +1,9 @@
 import { defineStore } from "pinia";
 import zondaAPI from "@/api/resources/zondaAPI";
-import type { IOrderbookItems } from "@/api/types/IOrderbookResponse";
-import { defaultPair } from "@/stores/useCurrencyPairs";
+import type { OrderbookItems } from "@/types/OrderbookResponse";
+import type { OrderbookTableRow } from "@/types/OrderbookTableRow";
 
-export interface IBook {
-  rate: string;
-  amount: string;
-  value: string;
-  offers: number;
-}
-
-function getBook(arr: IOrderbookItems[]) {
+function getBook(arr: OrderbookItems[]) {
   return arr.map((item) => {
     return {
       rate: item.ra,
@@ -23,12 +16,12 @@ function getBook(arr: IOrderbookItems[]) {
 
 export const useOrderbook = defineStore("useOrderbook", {
   state: () => ({
-    bids: [] as IBook[],
-    asks: [] as IBook[],
+    bids: [] as OrderbookTableRow[],
+    asks: [] as OrderbookTableRow[],
   }),
   actions: {
     async getOrderbook(pair: string, limit: 10 | 50 | 100 = 10) {
-      const response = await zondaAPI.getOrderbook("BTC-PLN", limit);
+      const response = await zondaAPI.getOrderbook(pair, limit);
       this.bids = getBook(response.buy);
       this.asks = getBook(response.sell);
     },
