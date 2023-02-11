@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" v-for="i in orderbookTypes">
+  <v-col cols="12" md="6" v-for="i in orderbookTypes" :key="i">
     <v-card>
       <v-card-text>
         <div v-if="loading" class="table-skeleton">
@@ -10,7 +10,7 @@
             :key="i"
           />
         </div>
-        <OrderbookTable v-else :book="orderbook[i]" title="Bids" />
+        <OrderbookTable v-else :book="orderbook[i]" :title="i" />
       </v-card-text>
     </v-card>
   </v-col>

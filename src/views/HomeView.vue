@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import OrderbookTables from "@/components/OrderbookTables.vue";
-import SkeletonTables from "@/components/SkeletonTables.vue";
 import TickerPicker from "@/components/TickerPicker.vue";
 import AnimatedPlaceholder from "@/components/AnimatedPlaceholder.vue";
 </script>
