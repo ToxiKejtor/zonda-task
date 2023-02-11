@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import OrderbookTable from "@/components/OrderbookTable.vue";
+import OrderbookTables from "@/components/OrderbookTables.vue";
+import SkeletonTables from "@/components/SkeletonTables.vue";
 import TickerPicker from "@/components/TickerPicker.vue";
 import { onMounted } from "vue";
 import { useCurrencyPairs } from "@/stores/useCurrencyPairs";
-import { useOrderbook } from "@/stores/useOrderbook";
 const currencyPairs = useCurrencyPairs();
-const orderbook = useOrderbook();
 
 onMounted(async () => {
   await currencyPairs.getPairs();
-  await orderbook.getOrderbook(currencyPairs.currentPair);
 });
 </script>
 
@@ -22,20 +20,12 @@ onMounted(async () => {
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" md="6">
-          <v-card>
-            <v-card-text>
-              <OrderbookTable :book="orderbook.bids" title="Bids" />
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-card>
-            <v-card-text>
-              <OrderbookTable :book="orderbook.asks" title="Asks" />
-            </v-card-text>
-          </v-card>
-        </v-col>
+        <Suspense>
+          <template #default>
+            <OrderbookTables />
+          </template>
+          <template #fallback><SkeletonTables /></template>
+        </Suspense>
       </v-row>
     </v-container>
   </v-main>

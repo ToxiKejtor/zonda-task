@@ -1,6 +1,7 @@
 <template>
   <div class="ticker-picker">
     <v-autocomplete
+      loading
       hide-details
       class="ticker-picker__select"
       label="Select"
