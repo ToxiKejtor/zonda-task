@@ -17,6 +17,9 @@ export const useCurrencyPairs = defineStore("useCurrencyPairs", {
   },
   actions: {
     async getPairs() {
+      // dummy sleep just to have time to show loading state
+      await new Promise((r) => setTimeout(r, 1000));
+
       const response = await zondaAPI.getTickers();
       this.pairs = Object.keys(response.items);
     },

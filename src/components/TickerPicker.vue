@@ -14,13 +14,12 @@
 
 <script lang="ts" setup>
 import { useCurrencyPairs } from "@/stores/useCurrencyPairs";
-import { useOrderbook } from "@/stores/useOrderbook";
 const currencyPairs = useCurrencyPairs();
-const orderbook = useOrderbook();
 function changeCurrencyPair(newPair: string) {
   currencyPairs.currentPair = newPair;
-  orderbook.getOrderbook(newPair);
 }
+
+await currencyPairs.getPairs();
 </script>
 
 <style scoped lang="scss">

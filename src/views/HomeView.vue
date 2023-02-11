@@ -2,13 +2,7 @@
 import OrderbookTables from "@/components/OrderbookTables.vue";
 import SkeletonTables from "@/components/SkeletonTables.vue";
 import TickerPicker from "@/components/TickerPicker.vue";
-import { onMounted } from "vue";
-import { useCurrencyPairs } from "@/stores/useCurrencyPairs";
-const currencyPairs = useCurrencyPairs();
-
-onMounted(async () => {
-  await currencyPairs.getPairs();
-});
+import AnimatedPlaceholder from "@/components/AnimatedPlaceholder.vue";
 </script>
 
 <template>
@@ -16,16 +10,22 @@ onMounted(async () => {
     <v-container>
       <v-row justify="start">
         <v-col cols="12">
-          <TickerPicker />
+          <Suspense>
+            <template #default>
+              <TickerPicker />
+            </template>
+            <template #fallback>
+              <AnimatedPlaceholder
+                width="150px"
+                height="56px"
+                border-radius="5px"
+              />
+            </template>
+          </Suspense>
         </v-col>
       </v-row>
       <v-row>
-        <Suspense>
-          <template #default>
-            <OrderbookTables />
-          </template>
-          <template #fallback><SkeletonTables /></template>
-        </Suspense>
+        <OrderbookTables />
       </v-row>
     </v-container>
   </v-main>
