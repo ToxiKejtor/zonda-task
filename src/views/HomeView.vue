@@ -14,9 +14,29 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main>
-    <TickerPicker />
-    <OrderbookTable :book="orderbook.bids" title="Bids" />
-    <OrderbookTable :book="orderbook.asks" title="Asks" />
-  </main>
+  <v-main>
+    <v-container>
+      <v-row justify="start">
+        <v-col cols="12">
+          <TickerPicker />
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12" md="6">
+          <v-card>
+            <v-card-text>
+              <OrderbookTable :book="orderbook.bids" title="Bids" />
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-card>
+            <v-card-text>
+              <OrderbookTable :book="orderbook.asks" title="Asks" />
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-main>
 </template>

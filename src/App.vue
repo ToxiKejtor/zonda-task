@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { RouterView } from "vue-router";
+const theme = "light";
 </script>
 
 <template>
-  <RouterView />
+  <v-app :theme="theme">
+    <RouterView />
+  </v-app>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

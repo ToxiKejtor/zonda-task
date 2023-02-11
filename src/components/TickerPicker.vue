@@ -1,10 +1,14 @@
 <template>
-  <v-autocomplete
-    label="Select"
-    :items="currencyPairs.pairs"
-    :model-value="currencyPairs.currentPair"
-    @update:modelValue="changeCurrencyPair"
-  />
+  <div class="ticker-picker">
+    <v-autocomplete
+      hide-details
+      class="ticker-picker__select"
+      label="Select"
+      :items="currencyPairs.pairs"
+      :model-value="currencyPairs.currentPair"
+      @update:modelValue="changeCurrencyPair"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -18,4 +22,10 @@ function changeCurrencyPair(newPair: string) {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.ticker-picker {
+}
+.ticker-picker__select {
+  width: 150px;
+}
+</style>
