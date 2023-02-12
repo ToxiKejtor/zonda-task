@@ -2,7 +2,7 @@
   <div class="placeholder" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineProps({
   height: {
     type: String,

@@ -20,9 +20,9 @@ const wrapper = mount(OrderbookTable, {
     title: "title",
     book: [
       {
-        rate: "1111",
-        amount: "3",
-        value: "5000",
+        rate: 11111,
+        amount: 3,
+        value: 5000,
         offers: 5,
       },
     ],
