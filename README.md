@@ -1,5 +1,7 @@
 # zonda-task
 
+App available at [https://curious-caramel-5c060a.netlify.app](https://curious-caramel-5c060a.netlify.app/) 
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
