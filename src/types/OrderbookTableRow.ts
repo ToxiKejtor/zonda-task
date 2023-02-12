@@ -1,7 +1,7 @@
 export type OrderbookTypes = ["bids", "asks"];
 export interface OrderbookTableRow {
-  rate: string;
-  amount: string;
-  value: string;
+  rate: number;
+  amount: number;
+  value: number;
   offers: number;
 }

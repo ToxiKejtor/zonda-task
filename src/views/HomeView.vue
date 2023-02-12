@@ -2,6 +2,7 @@
 import OrderbookTables from "@/components/OrderbookTables.vue";
 import TickerPicker from "@/components/TickerPicker.vue";
 import AnimatedPlaceholder from "@/components/AnimatedPlaceholder.vue";
+import Spread from "@/components/Spread.vue";
 </script>
 
 <template>
@@ -21,6 +22,11 @@ import AnimatedPlaceholder from "@/components/AnimatedPlaceholder.vue";
               />
             </template>
           </Suspense>
+        </v-col>
+      </v-row>
+      <v-row justify="center">
+        <v-col cols="12">
+          <Spread />
         </v-col>
       </v-row>
       <v-row>

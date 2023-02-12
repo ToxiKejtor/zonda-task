@@ -20,3 +20,9 @@ test("gets orderbook", async () => {
   expect(orderbook.bids.length).toBeGreaterThan(0);
   expect(orderbook.asks.length).toBeGreaterThan(0);
 });
+
+test("calculate spread", async () => {
+  const orderbook = useOrderbook();
+  await orderbook.getOrderbook();
+  expect(orderbook.spread).toBeGreaterThan(0);
+});
