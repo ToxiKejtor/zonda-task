@@ -1,7 +1,6 @@
 <template>
   <div class="ticker-picker">
     <v-autocomplete
-      loading
       hide-details
       class="ticker-picker__select"
       label="Select"
@@ -18,7 +17,6 @@ const currencyPairs = useCurrencyPairs();
 function changeCurrencyPair(newPair: string) {
   currencyPairs.currentPair = newPair;
 }
-
 await currencyPairs.getPairs();
 </script>
 
